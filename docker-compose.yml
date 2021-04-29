@@ -18,6 +18,15 @@ services:
       - "8000:8000"
     depends_on:
       - db
+      - elasticsearch
     env_file:
       - ./django/.env
+      - ./elasticsearch/.env
+  elasticsearch:
+    image: elasticsearch:6.8.15
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
 

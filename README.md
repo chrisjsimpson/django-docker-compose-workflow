@@ -12,6 +12,10 @@ cp .env.example .env  # use defaults is OK for local dev
 
 cd ../postgres
 cp .env.example .ev # use defaults is OK for local dev
+
+cd ../elasticsearch
+cp .env.example .ev # use defaults is OK for local dev
+
 cd ../
 ```
 

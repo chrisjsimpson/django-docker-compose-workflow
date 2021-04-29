@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Elasticsearch
+    "haystack",
 ]
 
 MIDDLEWARE = [
@@ -85,6 +87,14 @@ DATABASES = {
         "HOST": os.getenv("DB_HOST"),
         "PORT": os.getenv("DB_PORT"),
     }
+}
+
+HAYSTACK_CONNECTIONS = {
+    "default": {
+        "ENGINE": os.getenv("HAYSTACK_ENGINE"),
+        "URL": os.getenv("ELASTICSEARCH_URL"),
+        "INDEX_NAME": ("ELASTICSEARCH_INDEX_NAME"),
+    },
 }
 
 
