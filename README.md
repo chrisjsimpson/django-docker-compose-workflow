@@ -10,10 +10,16 @@ Quickly start a Django3 python web development environment
 cd django
 cp .env.example .env  # use defaults is OK for local dev
 
+cd ../elasticsearch
+cp .env.example .env # use defaults is OK for local dev
+
+
+# Database environment variables (Choose either of Postgres or MySql)
+
 cd ../postgres
 cp .env.example .env # use defaults is OK for local dev
 
-cd ../elasticsearch
+cd ../mysql
 cp .env.example .env # use defaults is OK for local dev
 
 cd ../
