@@ -7,9 +7,17 @@ services:
       - ./data/postgres:/var/lib/postgresql/data
     env_file:
       - ./postgres/.env
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    env_file:
+      - ./mysql/.env
+    command: --default-authentication-plugin=mysql_native_password
   web:
     build: django
-    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - type: bind
         source: ./django/web
@@ -17,6 +25,7 @@ services:
     ports:
       - "8000:8000"
     depends_on:
+      - mysql
       - postgres
       - elasticsearch
     env_file:
